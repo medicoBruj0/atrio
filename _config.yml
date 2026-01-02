@@ -10,17 +10,17 @@ tags:
   - netlify
 show_hero: true
 menu:
-  - title: Home
+  - title: Inicio
     url: /
-  - title: About
-    url: /about
-  - title: Contact
-    url: /contact
+  - title: El Atrio
+    url: /about/
+  - title: Archivo
+    url: /tags/
   - title: Feed
     url: /feed.xml
 email: medicobruj0@proton.me
 # See: https://disqus.com/
-disqus_username: disqus_username
+#disqus_username: disqus_username
 # Contact Form Setting
 # See: https://formspree.io/
 formspree_form_id: formspree_form_id
@@ -41,8 +41,8 @@ two_columns_layout: true
 
 
 # Advanced Settings
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site
+baseurl: "https://medicobruj0.github.io/" # the subpath of your site, e.g. /blog
+url: "/atrio" # the base hostname & protocol for your site
 google_analytics: "UA-XXXXXXXX-X"
 language: "es"
 categories_folder: category
