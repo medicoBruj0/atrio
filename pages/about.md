@@ -1,19 +1,26 @@
 ---
 layout: page
 menu: false
-date: '2020-02-27 01:53:59'
-title: Acerca de
-description: Descripción del blog.
+date: '2026-01-02'
+title: "El Atrio"
 permalink: /about/
 ---
 
-<img class="img-rounded" src="/assets/img/uploads/profile.png" alt="Thomas A. Anderson" width="200">
+# Médico Brujo
 
-# About
+**El Atrio** es un espacio de escritura y análisis donde convergen dos intereses principales:
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+(1) la economía como campo de estudio y práctica,
+
+(2) y los videojuegos como ecosistemas de interacción, incentivos y conducta humana.
+
+Más que ver a los videojuegos únicamente como entretenimiento, aquí se abordan como:
+
+- simulaciones sociales,
+- entornos experimentales de comportamiento económico,
+- y espacios donde se revelan dinámicas de poder, cooperación y conflicto.
+
+El proyecto surge como una iniciativa propia con la intención de documentar ideas, hallazgos y conexiones entre ambos mundos, combinando experiencias personales, investigación y observación crítica.
+
+
+Si llegaste aquí por curiosidad: pásale al Atrio.
