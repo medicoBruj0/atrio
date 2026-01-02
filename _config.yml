@@ -41,8 +41,8 @@ two_columns_layout: true
 
 
 # Advanced Settings
-baseurl: "https://medicobruj0.github.io/" # the subpath of your site, e.g. /blog
-url: "/atrio" # the base hostname & protocol for your site
+url: "https://medicobruj0.github.io"
+baseurl: "/atrio"
 google_analytics: "UA-XXXXXXXX-X"
 language: "es"
 categories_folder: category
@@ -52,7 +52,7 @@ sent_message_url: "/contact/message-sent/"
 # Build settings
 markdown: kramdown
 highlighter: rouge
-permalink: /:title/
+permalink: /:categories/:title/
 collections:
   authors:
     output: true
