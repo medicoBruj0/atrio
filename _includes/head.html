@@ -47,7 +47,7 @@
     {% if image contains '://' %}
         <meta property="twitter:image" content="{{ image }}">
     {% else %}
-        <meta property="twitter:image" content="{{ image | prepend: site.url }}">
+        <meta property="twitter:image" content="{{ image | prepend: site.baseurl | prepend: site.url }}">
     {% endif %}
     
     {% if site.twitter_username %}
@@ -57,7 +57,7 @@
     <!-- Social: Facebook / Open Graph -->
     <meta property="og:url" content="{{ url }}">
     <meta property="og:title" content="{{ title }}">
-    <meta property="og:image" content="{{ image }}">
+    <meta property="og:image" content="{% if image contains '://' %}{{ image }}{% else %}{{ image | prepend: site.baseurl | prepend: site.url }}{% endif %}">
     <meta property="og:description" content="{{ description }}">
     <meta property="og:site_name" content="{{ site.title }}">
 

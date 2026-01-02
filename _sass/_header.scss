@@ -5,40 +5,50 @@ body {
 
 .bar-header {
   background-color: $primaryDark;
-  padding: rem(10px) rem(15px);
+  padding: rem(10px) 0;
   position: fixed;
   left: 0;
   width: 100%;
-  z-index: 10;
-  transition: top 0.5s, left 0.3s ease, background-color 0.5s, box-shadow 0.5s;
-  
-  @include media(">=sm") {
-    padding: rem(15px) rem(0px);
+  z-index: 200;
+  transition: top 0.3s, background-color 0.3s, box-shadow 0.3s;
+
+  .header-inner {
+    position: relative;
+    max-width: rem(1000px);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 rem(15px);
+  }
+
+  .left,
+  .right {
+    display: flex;
+    align-items: center;
+    min-width: rem(140px);
   }
 
   .logo {
-    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     margin: 0;
-    height: rem(32px);
-    line-height: rem(32px);
+    height: rem(40px);
+    line-height: rem(40px);
 
     a {
-      display: block;
+      display: inline-block;
       color: $accentDark;
       text-decoration: none;
-      font-size: rem(32px);
-      position: relative;
+      font-size: rem(26px);
       outline: 0;
     }
 
     svg {
-      width: rem(120px);
-      height: rem(30px);
-      transition: all .4s;
-  
-      @include media(">=sm") {
-        width: rem(205px);
-      }
+      width: rem(180px);
+      height: rem(36px);
+      transition: all .3s;
     }
   }
 
@@ -47,43 +57,30 @@ body {
     font-size: rem(10px);
     font-weight: normal;
     line-height: 1;
-    position: absolute;
-    top: 0;
-    right: 0;
     display: block;
-    transform: translateX(110%);
     opacity: 0.3;
+    margin-left: rem(6px);
   }
 
   .icon-menu {
-    float: left;
     cursor: pointer;
-    margin: rem(5px) rem(20px) rem(5px) 0;
-    width: rem(20px);
-    height: rem(20px);
+    margin-right: rem(12px);
+    width: rem(22px);
+    height: rem(22px);
     fill: $accentDark;
-
-    @include media(">=sm") {
-      margin: rem(5px) rem(20px) rem(5px) rem(25px);
-    }
   }
 
   .dosearch {
-    float: right;
     width: rem(30px);
     height: rem(30px);
     cursor: pointer;
-    margin: 0;
-    @include media(">=sm") {
-      margin: 0 rem(20px) 0 0;
-    }
+    margin-left: rem(12px);
   }
 
   .icon-search {
     width: rem(20px);
     height: rem(20px);
     fill: $accentDark;
-    margin: rem(5px);
   }
 
   .get-theme {
@@ -95,12 +92,45 @@ body {
     color: $accentDark;
     padding: rem(5px) rem(10px);
     border-radius: rem(5px);
-    float: right;
-    margin: rem(5px) rem(15px) rem(5px) rem(5px);
+    margin-left: rem(12px);
 
     @include media(">=sm") {
       display: inline-block;
     }
+  }
+
+  .nav-primary ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: rem(18px);
+  }
+
+  .nav-primary a {
+    color: $accentDark;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: rem(14px);
+    padding: rem(8px) rem(6px);
+    border-radius: rem(4px);
+    transition: color 0.15s, background-color 0.15s;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    opacity: 0.95;
+  }
+
+  .nav-primary a:hover {
+    color: $themeColor;
+    background: transparent;
+  }
+
+  @include media(">=sm") {
+    .nav-primary { display: block; }
+  }
+
+  @include media("<sm") {
+    .nav-primary { display: none; }
   }
 }
 

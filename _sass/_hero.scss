@@ -17,6 +17,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 1;
   }
 
   .pixels {
@@ -36,6 +37,7 @@
     width: 80%;
     height: 100%;
     padding-left: 10%;
+    z-index: 2;
 
     @include media(">=sm") {
       width: 50%;
@@ -104,5 +106,19 @@
         vertical-align: middle;
       }
     }
+  }
+
+  /* Make the hero image cover full area responsively */
+  picture,
+  .hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+    z-index: 0;
   }
 }

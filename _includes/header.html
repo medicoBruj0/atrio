@@ -1,24 +1,35 @@
 <header class="bar-header">
-    <a id="menu" role="button">
-        <svg id="open" class="icon-menu"><use xlink:href="#icon-menu"></use></svg>
-    </a>
-    <h1 class="logo">
-        <a href="{{ site.baseurl }}/">
-            {% if site.use_logo %}
-                {% include logo.html %}
-            {% else %}
-                {{ site.name }} <span class="version">{{ site.version }}</span>
-            {% endif %}
-        </a>
-    </h1>
-    <a id="search" class="dosearch" role="button">
-        <svg class="icon-search"><use xlink:href="#icon-search"></use></svg>
-    </a>
-    {% if site.show_get_theme_btn %}
-    {% endif %}
+    <div class="header-inner">
+        <div class="left">
+            <nav class="nav-primary">
+                <ul>
+                    {% for item in site.menu %}
+                        {% if item.title and item.url %}
+                            <li><a href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+
+        <h1 class="logo">
+            <a href="{{ site.baseurl }}/">
+                {% if site.use_logo %}
+                    {% include logo.html %}
+                {% else %}
+                    {{ site.name }} <span class="version">{{ site.version }}</span>
+                {% endif %}
+            </a>
+        </h1>
+
+        <div class="right">
+            <a id="search" class="dosearch" role="button">
+                <svg class="icon-search"><use xlink:href="#icon-search"></use></svg>
+            </a>
+        </div>
+    </div>
 </header>
 
 <div id="mask" class="overlay"></div>
 
-{% include menu.html %}
 {% include search.html %}

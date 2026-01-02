@@ -3,13 +3,18 @@ layout: main
 ---
 
 {% if site.paginate %}
-    {% assign posts = paginator.posts | where_exp:"post","post.is_generated != true" %}
+    {% assign posts = paginator.posts | where_exp:"post","post.is_generated != true or post.is_generated == nil" %}
 {% else %}
-    {% assign posts = site.posts | where_exp:"post","post.is_generated != true" %}
+    {% assign posts = site.posts %}
 {% endif %}
 
-{% if site.show_hero and paginator == nil or paginator.page == 1 %}
-    {% assign offset = 1 %}
+{% assign posts_count = posts | size %}
+{% if site.show_hero %}
+    {% if paginator == nil or paginator.page == 1 %}
+        {% assign offset = 1 %}
+    {% else %}
+        {% assign offset = 0 %}
+    {% endif %}
 {% else %}
     {% assign offset = 0 %}
 {% endif %}
@@ -18,7 +23,16 @@ layout: main
     {% if site.show_hero and paginator == nil or paginator.page == 1 %}
         <!-- Hero -->
         {% assign featured = posts.first %}
-        <section class="hero" style="background-image: url({{ featured.image }})">
+        <section class="hero">
+            <picture>
+                <source type="image/webp" srcset="{{ site.baseurl }}/assets/img/darkestdungeon-480.webp 480w, {{ site.baseurl }}/assets/img/darkestdungeon-800.webp 800w, {{ site.baseurl }}/assets/img/darkestdungeon-1200.webp 1200w, {{ site.baseurl }}/assets/img/darkestdungeon.webp 1600w" sizes="(max-width: 600px) 100vw, 1200px">
+                <source srcset="{{ site.baseurl }}/assets/img/darkestdungeon-480.jpg 480w, {{ site.baseurl }}/assets/img/darkestdungeon-800.jpg 800w, {{ site.baseurl }}/assets/img/darkestdungeon-1200.jpg 1200w, {{ site.baseurl }}/assets/img/darkestdungeon.jpg 1600w" sizes="(max-width: 600px) 100vw, 1200px">
+                <img
+                src="{{ site.baseurl }}/assets/img/darkestdungeon.jpg"
+                data-url="{{ site.baseurl }}/assets/img/darkestdungeon-480.webp"
+                class="preload hero-image"
+                alt="Atrio del Videojuego">
+            </picture>
             <div class="pixels"></div>
             <div class="gradient"></div>
             <div class="content">
@@ -41,6 +55,7 @@ layout: main
         </section>
     {% endif %}
     <!-- Posts -->
+    {% if posts_count > offset %}
     <section id="grid" class="row flex-grid">
         {% for post in posts offset: offset %}
             <article class="box-item">
@@ -51,19 +66,18 @@ layout: main
                 </span>
                 <div class="box-body">
                     <a class="cover" href="{{ post.url | prepend: site.baseurl }}">
-                        {% include loader.html %}
                         {% if post.optimized_image %}
-                            <img src="/assets/img/placeholder.png" width="100%" data-url="{{ post.optimized_image }}" class="preload">
+                            <img src="{{ '/assets/img/placeholder.png' | prepend: site.baseurl }}" width="100%" data-url="{{ post.optimized_image | prepend: site.baseurl }}" class="preload">
                             <noscript>
-                                <img src="{{ post.optimized_image }}" width="100%">
+                                <img src="{{ post.optimized_image | prepend: site.baseurl }}" width="100%">
                             </noscript>
                         {% elsif post.image %}
-                            <img src="/assets/img/placeholder.png" width="100%" data-url="{{ post.image }}" class="preload">
+                            <img src="{{ '/assets/img/placeholder.png' | prepend: site.baseurl }}" width="100%" data-url="{{ post.image | prepend: site.baseurl }}" class="preload">
                             <noscript>
-                                <img src="{{ post.image }}" width="100%">
+                                <img src="{{ post.image | prepend: site.baseurl }}" width="100%">
                             </noscript>
                         {% else %}
-                            <img src="/assets/img/placeholder.png" width="100%" data-url="/assets/img/off.jpg" class="preload">
+                            <img src="{{ '/assets/img/placeholder.png' | prepend: site.baseurl }}" width="100%" data-url="{{ '/assets/img/off.jpg' | prepend: site.baseurl }}" class="preload">
                             <noscript>
                                 <img src="/assets/img/off.jpg" width="100%">
                             </noscript>
@@ -95,6 +109,7 @@ layout: main
             </article>
         {% endfor %}
     </section>
+    {% endif %}
     <!-- Pagination -->
     {% if site.paginate %}
         {% include pagination-home.html %}
@@ -152,7 +167,7 @@ layout: main
                 "name": "{{ post.title }}",
                 "headline": "{{ post.subtitle }}",
                 "description": "{{ post.description }}",
-                "image": "{{ post.image }}",
+                "image": "{{ post.image | prepend: site.baseurl }}",
                 "url": "{{ post.url | prepend: site.baseurl | prepend: site.url }}",
                 "inLanguage": "{{ site.language }}",
                 "dateCreated": "{{ post.date | date: '%Y-%m-%d/' }}",

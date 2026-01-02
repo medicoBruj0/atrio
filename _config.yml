@@ -8,6 +8,10 @@ tags:
   - Cultura del Videjojuego
   - Industria del Videojuego
 show_hero: true
+hero_image: /assets/img/darkestdungeon-2.webp
+hero_image_small: /assets/img/darkestdungeon-2-small.webp
+hero_title: "Bienvenido a El Atrio del Videojuego"
+hero_subtitle: "Observatorio cultural y económico del videojuego"
 menu:
   - title: Inicio
     url: /
