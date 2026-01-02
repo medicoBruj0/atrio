@@ -4,10 +4,9 @@ title: El Atrio del Videojuego
 description: Un Observatorio Cultural sobre la industria del videojuego, atravesado por la teoría económica y el arte.
 tags:
   - blog
-  - template
-  - jekyll
-  - theme
-  - netlify
+  - Economía del Videojuego
+  - Cultura del Videjojuego
+  - Industria del Videojuego
 show_hero: true
 menu:
   - title: Inicio
@@ -18,12 +17,12 @@ menu:
     url: /tags/
   - title: Feed
     url: /feed.xml
-email: medicobruj0@proton.me
+email:
 # See: https://disqus.com/
 #disqus_username: disqus_username
 # Contact Form Setting
 # See: https://formspree.io/
-formspree_form_id: formspree_form_id
+formspree_form_id:
 
 
 # Social Media Settings
@@ -44,7 +43,7 @@ two_columns_layout: true
 url: "https://medicobruj0.github.io"
 baseurl: "/atrio"
 google_analytics: "UA-XXXXXXXX-X"
-language: "es"
+language: "es-MX"
 categories_folder: category
 sent_message_url: "/contact/message-sent/"
 

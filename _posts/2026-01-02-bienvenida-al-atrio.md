@@ -1,7 +1,9 @@
 ---
+layout: post
 title: "Bienvenida a El Atrio"
 date: 2026-01-02
 tags: [bienvenida, editorial]
+image: https://vgezone.com/wp-content/uploads/2019/02/darkestdungeon-2.jpg
 ---
 
 Este es el primer texto publicado en **El Atrio**.
