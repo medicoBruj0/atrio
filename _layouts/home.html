@@ -21,18 +21,25 @@ layout: main
 
 <main class="home {% if site.show_hero and paginator == nil or paginator.page == 1 %}no-padding{% endif %}" role="main">
     {% if site.show_hero and paginator == nil or paginator.page == 1 %}
-        <!-- Hero -->
-        {% assign featured = posts.first %}
-        <section class="hero">
+        <!-- Banner (imagen fija) -->
+        <section class="banner">
             <picture>
                 <source type="image/webp" srcset="{{ site.baseurl }}/assets/img/darkestdungeon-480.webp 480w, {{ site.baseurl }}/assets/img/darkestdungeon-800.webp 800w, {{ site.baseurl }}/assets/img/darkestdungeon-1200.webp 1200w, {{ site.baseurl }}/assets/img/darkestdungeon.webp 1600w" sizes="(max-width: 600px) 100vw, 1200px">
                 <source srcset="{{ site.baseurl }}/assets/img/darkestdungeon-480.jpg 480w, {{ site.baseurl }}/assets/img/darkestdungeon-800.jpg 800w, {{ site.baseurl }}/assets/img/darkestdungeon-1200.jpg 1200w, {{ site.baseurl }}/assets/img/darkestdungeon.jpg 1600w" sizes="(max-width: 600px) 100vw, 1200px">
-                <img
-                src="{{ site.baseurl }}/assets/img/darkestdungeon.jpg"
-                data-url="{{ site.baseurl }}/assets/img/darkestdungeon-480.webp"
-                class="preload hero-image"
-                alt="Atrio del Videojuego">
+                <img src="{{ site.baseurl }}/assets/img/darkestdungeon.jpg" class="banner-image" alt="Atrio del Videojuego">
             </picture>
+        </section>
+
+        <!-- Hero: muestra la imagen del post destacado -->
+        {% assign featured = posts.first %}
+        <section class="hero">
+            {% if featured.optimized_image %}
+                <img src="{{ featured.optimized_image | prepend: site.baseurl }}" class="preload hero-image" alt="{{ featured.title }}">
+            {% elsif featured.image %}
+                <img src="{{ featured.image | prepend: site.baseurl }}" class="preload hero-image" alt="{{ featured.title }}">
+            {% else %}
+                <img src="{{ site.baseurl }}/assets/img/darkestdungeon.jpg" class="preload hero-image" alt="Atrio del Videojuego">
+            {% endif %}
             <div class="pixels"></div>
             <div class="gradient"></div>
             <div class="content">
@@ -52,6 +59,12 @@ layout: main
                     </a>
                 </div>
             </div>
+        </section>
+        <!-- Propósito: colocado encima del grid con texto grande y blanco -->
+        <section class="site-purpose">
+          <div class="container">
+            <p class="purpose-text purpose-large">{{ site.home_purpose | default: site.description }}</p>
+          </div>
         </section>
     {% endif %}
     <!-- Posts -->

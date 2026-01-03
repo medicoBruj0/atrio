@@ -80,7 +80,8 @@
       font-weight: bold;
       color: #fff;
       text-decoration: none;
-      background-color: rgba(0, 0, 0, 0.6);
+        background-color: transparent;
+        border: 1px solid rgba(255,255,255,0.06);
       border-radius: rem(5px);
       padding: rem(10px) rem(15px);
       transition: all 0.3s;
@@ -90,8 +91,8 @@
       }
 
       &:hover {
-        background-color: rgba(255, 255, 255, 0.5);
-        box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.2);
+        background-color: rgba(255,255,255,0.06);
+        box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.12);
       }
 
       svg {
@@ -121,4 +122,53 @@
     object-position: center center;
     z-index: 0;
   }
+}
+
+/* Banner: imagen fija con mitad de altura de la pantalla */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  overflow: hidden;
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,0.02);
+
+  .banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center 85%;
+    z-index: 0;
+    transform: scale(1.07) translateY(-20%);
+    transition: transform 0.6s ease;
+    will-change: transform;
+    animation: kenburns 20s linear infinite alternate;
+  }
+
+  .gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-image: linear-gradient(180deg, rgba(20, 20, 20, 0.5) 10%, rgba(0,0,0,0.25) 60%);
+  }
+
+  /* Subtle hover zoom for pointer devices */
+  &:hover .banner-image {
+    transform: scale(1.08) translateY(-6%);
+  }
+
+  @include media("<=sm") {
+    height: 30vh;
+  }
+}
+
+@keyframes kenburns {
+  from { transform: scale(1.07) translateY(-20%); }
+  to { transform: scale(1.11) translateY(-6%); }
 }

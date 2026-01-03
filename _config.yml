@@ -1,7 +1,7 @@
 # Site Settings
 name: El Atrio
 title: El Atrio del Videojuego
-description: Un Observatorio Cultural sobre la industria del videojuego, atravesado por la teoría económica y el arte.
+description: Noticias, análisis y cosas sobre la industra del videojuego.
 tags:
   - blog
   - Economía del Videojuego
@@ -15,10 +15,10 @@ hero_subtitle: "Observatorio cultural y económico del videojuego"
 menu:
   - title: Inicio
     url: /
-  - title: El Atrio
-    url: /about/
   - title: Archivo
     url: /tags/
+  - title: El Atrio
+    url: /about/
   - title: Feed
     url: /feed.xml
 email:

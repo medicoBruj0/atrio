@@ -3,6 +3,11 @@ body {
   height: 100%;
 }
 
+/* Use the same subtle dark background for the whole site pages */
+body {
+  background-color: $primaryDark;
+}
+
 .bar-header {
   background-color: $primaryDark;
   padding: rem(10px) 0;
@@ -135,8 +140,6 @@ body {
 }
 
 body.main-page {
-  background-color: #141414;
-
   .bar-header {
     background-color: rgba(0, 0, 0, 0.85);
   }
@@ -149,12 +152,16 @@ body.light:not(.main-page) {
 
     .icon-search,
     .icon-menu {
-      fill: $primaryDark;
+      fill: $themeColor;
     }
 
     .logo a,
     .version {
-      color: $primaryDark;
+      color: $themeColor;
+    }
+
+    .nav-primary a {
+      color: $themeColor;
     }
   }
 }

@@ -216,3 +216,37 @@
     padding: rem(15px);
   }
 }
+
+  /* Styles for the site purpose section inserted in home layout */
+  .site-purpose {
+    padding: rem(28px) rem(20px);
+    background: rgba(20,20,20,0.25);
+    margin: rem(20px) 0;
+
+    .container {
+      @include center(rem(1000px));
+      text-align: center;
+    }
+    /* Hero-specific purpose text styles */
+    .hero .purpose-text {
+      color: rgba(255,255,255,0.9);
+      margin-top: rem(18px);
+      font-size: rem(18px);
+      line-height: rem(26px);
+
+      @include media(">=sm") {
+        font-size: rem(20px);
+      }
+    }
+
+    .purpose-text {
+      color: rgba(255,255,255,0.9);
+        font-size: rem(28px);
+      line-height: rem(26px);
+      max-width: rem(900px);
+      margin: 0 auto;
+      @include media(">=sm") {
+          font-size: rem(34px);
+      }
+    }
+  }

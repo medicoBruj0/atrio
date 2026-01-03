@@ -7,6 +7,11 @@
   }
 }
 
+/* Ensure top-level post/page H1 titles are white on dark background */
+.post-content h1 {
+  color: $accentDark;
+}
+
 .post.two-columns {
   display: flex;
   flex-direction: column;
