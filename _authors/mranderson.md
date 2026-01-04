@@ -1,6 +1,6 @@
 ---
 layout: author
-photo: /assets/img/uploads/profile.png
+photo: /assets/img/uploads/medicoIcon.png
 name: El Atrio
 display_name: Médico Brujo
 position: The One
