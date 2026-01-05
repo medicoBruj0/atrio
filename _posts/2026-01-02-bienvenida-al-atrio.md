@@ -2,7 +2,7 @@
 layout: post
 title: "Bienvenida a El Atrio"
 date: 2026-01-02
-tags: [bienvenida, editorial]
+tags: [bienvenida]
 image: /assets/img/darkestdungeon-800.jpg
 optimized_image: /assets/img/darkestdungeon-800.webp
 ---
